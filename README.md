@@ -1,6 +1,6 @@
 # DSA Practice
 
-C++ solutions, organised by topic.
+python solutions, organised by topic.
 
 | Problem | Date | Pattern trigger |
 |---|---|---|
