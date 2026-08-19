@@ -13,8 +13,9 @@ def has_duplicate_set(nums):
     dup=set()
     for i in nums:
         if i in dup:
-            return True
+            return (True)
         dup.add(i)
+    return(False)
 print(has_duplicatenums(nums))
 print(has_duplicate_set(nums))
 
