@@ -10,3 +10,4 @@ python solutions, organised by topic.
 | Reverse a list without .reverse() or slicing | 15 Aug | Build a new list backwards by inserting each item at index 0 (keep in mind the difference between insert and append) | 
 | Contains Duplicate | 19 Aug | Compare every pair in one list → nested loop over indices with `j != i` guard; return True early, return False only after both loops finish |
 | Contains Duplicate (set) | 20 Aug | "Have I seen this before?" → one pass with a `dup` set; check BEFORE adding, so the set only holds earlier elements and nothing matches itself |
+|valid anagram|21 aug|Comparing composition of two collections regardless of order → build a frequency dict for each, compare with `==`; length check first as a cheap early exit |
