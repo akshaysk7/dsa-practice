@@ -42,3 +42,65 @@ finishes in time. Unlike Contains Duplicate, where the same approach timed out.
   by that name and fail with a NameError.
 - Method name must be exactly `twoSum` — capital S. Names are case-sensitive.
 - No `print`, no test data. The harness supplies input and reads the return.
+
+
+# SET VERSION OF TWO SUM
+
+---
+
+# Optimised — one pass with a dict
+
+## Logic
+
+1. Create an empty dict inside the function. It maps **number → index** for
+   every element already walked past.
+
+2. Loop once with `enumerate(nums)` — both the index and the value are
+   needed: the value for arithmetic, the index for the answer.
+
+3. For each element, compute the partner directly: `target - num`. No
+   searching involved — if a pair exists, this is exactly the other half.
+
+4. Ask the dict whether that partner has already been seen. `if target-num
+   in dict1` — an O(1) check, not a scan.
+
+5. **Found:** the answer is two indices. `i` is the current position;
+   `dict1[target-num]` returns the position stored when that partner was
+   walked past. Return `[dict1[target-num], i]`.
+
+6. **Not found:** file the current element for future passes —
+   `dict1[num] = i`. A later element may be looking for *this* one.
+
+## The key idea
+
+The dict does not compute anything. Line 6 writes `i` into the drawer
+labelled `num`; step 5 opens a drawer and gets back whatever was filed
+there. It returns an index solely because indices are what were stored —
+storing anything else would return that instead.
+
+Choosing the mapping is the real design decision. `{number: index}` works
+because the search is *by value* and the answer needed is a *position*.
+Flipping it to `{index: number}` would store fine and be useless.
+
+## Why check before storing
+
+The dict only ever holds elements from earlier passes, so an element can
+never match itself. Same ordering rule as Contains Duplicate — and it's
+also what makes `[3,3]` work: the first 3 is stored, the second finds it.
+
+## Complexity
+
+- **Time: O(n)** — one pass, O(1) dict operations throughout.
+- **Space: O(n)** — the dict can end up holding every element.
+
+Versus brute force: O(n²) time / O(1) space. Speed bought with memory again.
+
+## Gotchas hit
+
+- `range(...)` has no place here — it generates loop bounds, not a return
+  value. The answer is a plain two-element list.
+- No `else` needed. If the `if` fires, `return` exits; otherwise execution
+  falls through to the store line.
+- Storing `1` instead of `i` silently breaks everything: every lookup
+  returns 1 regardless of position. The stored value must match what the
+  return expects.

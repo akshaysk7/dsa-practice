@@ -1,0 +1,5 @@
+def isAnagram(s,t):
+    if len(s) != len(t):
+        return False:
+    count1={s}
+    count2={t}

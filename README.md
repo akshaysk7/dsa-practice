@@ -12,3 +12,4 @@ python solutions, organised by topic.
 | Contains Duplicate (set) | 20 Aug | "Have I seen this before?" → one pass with a `dup` set; check BEFORE adding, so the set only holds earlier elements and nothing matches itself |
 |valid anagram|21 aug|Comparing composition of two collections regardless of order → build a frequency dict for each, compare with `==`; length check first as a cheap early exit |
 | Two Sum (brute force) | 22 Aug | Find a pair meeting a condition → nested loop with inner starting at `i+1`; the bound itself prevents self-comparison and duplicate pairs, so no guard is needed |
+| Two Sum (dict) | 23 Aug | Need a partner value AND its position → dict of {number: index}. `dict1[num] = i` files each element's index under the number itself; later, `dict1[target-num]` opens that same drawer and hands the index back. It returns an index only because an index was stored — the dict computes nothing, it just retrieves what a previous pass filed |
