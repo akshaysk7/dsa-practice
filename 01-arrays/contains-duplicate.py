@@ -8,7 +8,7 @@ def has_duplicatenums(nums):
     return(False)
 print(has_duplicatenums(nums))
 
-
+#set version o(n) complexity 
 def has_duplicate_set(nums):
     dup=set()
     for i in nums:
