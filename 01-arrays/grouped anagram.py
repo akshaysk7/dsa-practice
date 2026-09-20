@@ -1,4 +1,4 @@
-def groupAnagram(self,strs):
+def groupAnagram(strs):
     groups={}
     for i in strs:
         key="".join(sorted(i))
@@ -7,8 +7,11 @@ def groupAnagram(self,strs):
         else:
             groups[key]=[i]
     return list(groups.values())
-    
-print(groupAnagram(["cat","tac","rat","car","silent","listen"]) )
+print(groupAnagram(["cat","tac","rat","car","silent","listen"]))
+
+
+
+
   
 
 
