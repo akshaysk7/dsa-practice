@@ -10,6 +10,7 @@ def productExceptSelf(nums):
 print(productExceptSelf([1,0,4,5]))
 
 
+
 #dict version o(n) time complexity
 def productExceptSelf(nums):
     result=[]
