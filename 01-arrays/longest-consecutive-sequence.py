@@ -18,6 +18,28 @@ def longestConsecutive(nums):
     return(best)
 print(longestConsecutive([1,2,3,10,11,12,13]))
 
+##set version
+def longestConsecutive(nums):
+    nums_set=set()
+    best=0
+    for i in nums:
+        nums_set.add(i)
+    for x in nums_set:
+        if x-1 in nums_set:
+            continue
+        s=x
+        length=1
+        while s+1 in nums_set:
+           s=s+1
+           length+=1
+        if length>best:
+            best=length
+    return(best)
+print(longestConsecutive([1,2,3,10,11,12,13]))
+
+        
+
+
 
 
        
