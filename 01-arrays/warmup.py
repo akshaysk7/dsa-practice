@@ -1,16 +1,19 @@
-def isvalid(board):
-    for i in range(len(board[0][0])):
-        print(i) 
-isvalid( board=[
-  ["5","3",".",".","7",".",".",".","."],
-  ["6",".",".","1","9","5",".",".","."],
-  [".","9","8",".",".",".",".","6","."],
-  ["8",".",".",".","6",".",".",".","3"],
-  ["4",".",".","8",".","3",".",".","1"],
-  ["7",".",".",".","2",".",".",".","6"],
-  [".","6",".",".",".",".","2","8","."],
-  [".",".",".","4","1","9",".",".","5"],
-  [".",".",".",".","8",".",".","7","9"]])
+def smallestduplicatevalue(a):
+    dup_values=set()
+    for i in range(len(a)):
+        for j in range(i+1,len(a)):
+            if a[i]==a[j]:
+                dup_values.add(a[i])
+    smallest=None
+    for v in dup_values:
+        if smallest==None or v<smallest:
+            smallest=v
+    return(smallest)
+print(smallestduplicatevalue([1,2,4,5,2,3,3]))
 
+
+
+        
+                
 
 
